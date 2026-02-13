@@ -4,7 +4,7 @@ using Content.Shared.StatusIcon;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.VoiceMask;
+namespace Content.Shared.VoiceMask;
 
 /// <summary>
 ///     This component is for voice mask items! Adding this component to clothing will give the the voice mask UI
@@ -64,6 +64,12 @@ public sealed partial class VoiceMaskComponent : Component
     /// </summary>
     [DataField]
     public bool AccentHide = true;
+
+    /// <summary>
+    ///     If user's equipped agent id name is getting changed.
+    /// </summary>
+    [DataField]
+    public bool ChangeIDName = false;
 
     #region GabyStation
     /// <summary>
