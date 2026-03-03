@@ -12,10 +12,5 @@
   parent: BaseUnknownShuttleAnnouncedRule
   id: UnknownShuttleTravelingCuisine
   components:
-  - type: StationEvent
-    chaos:
-      Friend: -20
-  - type: GameRule
-    chaosScore: -40
   - type: LoadMapRule
     gridPath: /Maps/_Trauma/Shuttles/ShuttleEvent/traveling_china_cuisine.yml

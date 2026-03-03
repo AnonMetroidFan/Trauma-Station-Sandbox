@@ -138,8 +138,6 @@
     color: "#d14343"
     activateSound: null
     deactivateSound: null
-  - type: CombatPower # Goobstation
-    factor: 2
   - type: PassiveDamage #passive Healing
     allowedStates:
     - Alive

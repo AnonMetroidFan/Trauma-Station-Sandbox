@@ -21,7 +21,6 @@
     - prefRoles: [ Thief ]
       max: 3
       playerRatio: 15 # Goob - was 20
-      chaosScore: 100 # Goob
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive

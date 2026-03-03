@@ -634,8 +634,8 @@
       path: /Audio/Voice/Moth/moth_flap.ogg
     Clap:
       collection: Claps
-    ClapSingle:
-      collection: ClapSingle
+    #ClapSingle: # Trauma - wasn't cherry picked
+    #  collection: ClapSingle
     Snap:
       collection: Snaps
       params:
