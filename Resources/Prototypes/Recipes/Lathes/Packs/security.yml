@@ -67,6 +67,7 @@
   id: SecurityEquipment
   recipes:
   - ClothingBackpackElectropack
+  - ClothingNeckShockCollar # Trauma
   - HoloprojectorSecurity
   - HoloprojectorSecurityAdvanced # Goob
   - AntiMindControlDevice # Goob
