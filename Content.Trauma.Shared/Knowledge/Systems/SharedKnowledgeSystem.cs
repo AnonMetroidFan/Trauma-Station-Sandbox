@@ -32,7 +32,7 @@ namespace Content.Trauma.Shared.Knowledge.Systems;
 /// </summary>
 public abstract partial class SharedKnowledgeSystem : CommonKnowledgeSystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    //[Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -58,7 +58,7 @@ public abstract partial class SharedKnowledgeSystem : CommonKnowledgeSystem
 
     private TimeSpan _nextUpdate;
     private TimeSpan _updateDelay = TimeSpan.FromSeconds(1);
-    private float _learnChance = 0.2f;
+    //private float _learnChance = 0.2f;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -68,7 +68,6 @@ public abstract partial class SharedKnowledgeSystem : CommonKnowledgeSystem
         InitializeMartialArts();
         InitializeOnWear();
         InitializeConstruction();
-        InitializeQuality();
         InitializeShooting();
 
         SubscribeLocalEvent<KnowledgeContainerComponent, ComponentStartup>(OnContainerStartup);
@@ -223,6 +222,7 @@ public abstract partial class SharedKnowledgeSystem : CommonKnowledgeSystem
 
     public void AddExperience(Entity<KnowledgeContainerComponent> ent, [ForbidLiteral] EntProtoId id, int xp, bool popup = true)
     {
+        /* FIXME: xp gaining needs to be reworked to be less shit, each source needs to say the mastery level it can raise up to
         if (GetKnowledge(ent, id) is not {} unit)
         {
             // if you don't have it, you have a small change to learn it when gaining some xp
@@ -238,6 +238,7 @@ public abstract partial class SharedKnowledgeSystem : CommonKnowledgeSystem
             var updateEv = new UpdateExperienceEvent();
             RaiseLocalEvent(holder, ref updateEv);
         }
+        */
     }
 
     public void AddExperience(Entity<KnowledgeComponent> ent, EntityUid target, int added)
@@ -546,6 +547,19 @@ public abstract partial class SharedKnowledgeSystem : CommonKnowledgeSystem
         {
             RaiseLocalEvent(unit, ref args);
         }
+    }
+
+    public override Dictionary<EntProtoId, int> GetSkillMasteries(EntityUid target)
+    {
+        var skills = new Dictionary<EntProtoId, int>();
+        if (GetContainer(target) is not {} brain)
+            return skills;
+
+        foreach (var (id, unit) in brain.Comp.KnowledgeDict)
+        {
+            skills[id] = GetMastery(unit);
+        }
+        return skills;
     }
 
     public string GetMasteryString(Entity<KnowledgeComponent> ent)

@@ -1171,7 +1171,9 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.PrimitiveCollection<string>("KnowledgeRemoved")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
+                        .HasDefaultValue("[]")
                         .HasColumnName("knowledge_removed");
 
                     b.Property<byte[]>("Markings")
