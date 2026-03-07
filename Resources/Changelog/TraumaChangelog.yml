@@ -3800,3 +3800,14 @@ Entries:
   id: 448
   time: '2026-03-07T15:04:57.0000000+00:00'
   url: https://github.com/Trauma-Station/Trauma-Station/pull/820
+- author: deltanedas
+  changes:
+  - type: Tweak
+    message: >-
+      Changed melee skill attack speed to be less insane, 25% increase or
+      decrease depending on skill.
+  - type: Tweak
+    message: Railings and fence structures are easier to make.
+  id: 449
+  time: '2026-03-07T15:42:29.0000000+00:00'
+  url: https://github.com/Trauma-Station/Trauma-Station/pull/1096
